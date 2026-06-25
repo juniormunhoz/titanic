@@ -4,7 +4,20 @@ import os
 import csv
 
 def csv_file_open (path:str):
-
+    """
+    Esta função abre um arquivo csv e extrai seu cabecalho, corpo e conteúdo estruturado.
+    Retorna uma tupla contendo file_header, com o nome das colunas, file_body, matriz com linhas de dados
+    dos passageiros, complete_file, lista de dicionários, onde as chaves são as colunas.
+    
+    Args:
+        path = string
+    
+    Returns:
+        file_body = []
+        file_header = []
+        complete_file =[]
+    
+    """
     if os.path.isfile(path):
 
         file_body = []
@@ -44,6 +57,13 @@ def csv_file_open (path:str):
         print('Arquivo não encontrado')
 
         return None, None, None
+    
+
+    
+
+
+
+
     
 
     
