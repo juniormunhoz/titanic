@@ -25,6 +25,7 @@ def taxa_sobrevivencia(file_body):
         #Contagem geral
         if linha[1] == "1":
             vivos_geral += 1
+            
         #Contagem homens e mulheres
         if linha[4] == "male":
             male[0] += 1
@@ -34,6 +35,7 @@ def taxa_sobrevivencia(file_body):
             female[0] += 1
             if linha[1] == "1":
                 female[1] += 1
+                
         #Contagem por classe
         if linha[2] == "1":
             c_classes[0] += 1
