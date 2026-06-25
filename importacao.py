@@ -8,31 +8,42 @@ def csv_file_open (path:str):
     if os.path.isfile(path):
 
         file_body = []
-        file_title = []
+        file_header = []
+        complete_file = []
 
-        with open(path, 'r', encoding = 'utf-8') as file:
+        with open (path, 'r', encoding = 'utf-8') as file:
 
             file_reader = csv.reader(file)
 
-            linha = 0
+            line = 0
 
-            for i in file_reader:
+            for row1 in file_reader:
 
-                if (linha == 0):
+                if (line == 0):
 
-                    file_title.append(i)
+                    file_header.append(row1)
 
                 else:
 
-                    file_body.append(i)
+                    file_body.append(row1)
 
-                linha += 1
+                line += 1
 
-        return file_title, file_body
+        with open (path, 'r', encoding= 'utf-8') as file:
+
+            file_reader = csv.DictReader(file)
+
+            for row2 in file_reader:
+
+                complete_file.append(row2)
+
+        return file_header, file_body, complete_file
 
     else:
 
         print('Arquivo não encontrado')
+
+        return None, None, None
     
 
     
