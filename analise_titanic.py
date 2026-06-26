@@ -2,7 +2,7 @@
 
 #Função 4 - Taxa de Sobrevivência Geral e por Segmento
 
-def taxa_sobrevivencia(file_body):
+def taxa_sobrevivencia(file_body: list):
     """
     Este procedimento recebe uma lista de listas, file_body, e faz verificações de taxa de sobrevivência.
     Taxa Geral: Porcentagem total de sobreviventes em relação ao total de passageiros.
@@ -10,7 +10,7 @@ def taxa_sobrevivencia(file_body):
     Por Classe: Calcula qual a porcentagem de sobreviventes em cada Pclass (1ª, 2ª e 3ª classe).
 
     Args:
-        file_body = []
+        file_body (list) = Lista de listas completa de todas as informações dos passageiros, sem o cabeçalho.
 
 
     """
@@ -25,7 +25,7 @@ def taxa_sobrevivencia(file_body):
         #Contagem geral
         if linha[1] == "1":
             vivos_geral += 1
-            
+
         #Contagem homens e mulheres
         if linha[4] == "male":
             male[0] += 1
@@ -56,4 +56,5 @@ def taxa_sobrevivencia(file_body):
     
     for i in range(len(c_classes)):
         print(f" Dentre os {c_classes[i]} da {i+1}° classe, apenas {(vivos_classes[i]/c_classes[i]) *100:.2f}% sobreviveram, o que corresponde a {vivos_classes[i]} passageiros.")
+    
     
