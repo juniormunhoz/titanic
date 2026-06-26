@@ -3,19 +3,19 @@
 import os
 import csv
 
-def csv_file_open (path:str):
+def csv_file_open (path: str):
     """
     Esta função abre um arquivo csv e extrai seu cabecalho, corpo e conteúdo estruturado.
-    Retorna uma tupla contendo file_header, com o nome das colunas, file_body, matriz com linhas de dados
-    dos passageiros, complete_file, lista de dicionários, onde as chaves são as colunas.
+    Retorna uma tupla contendo file_header, uma lista de listas com o nome das colunas, file_body, uma lista de listas com linhas de dados
+    dos passageiros, complete_file, lista de listas de dicionários, onde as chaves são as colunas.
     
     Args:
-        path = string
+        path (string) = Caminho do arquivo
     
     Returns:
-        file_body = []
-        file_header = []
-        complete_file =[]
+        file_body (list) = Lista de listas que contem todas as informações dos passageiros, sem o cabeçalho. Caso arquivo não exista, retorna None.
+        file_header (list) = Lista de listas que contem o cabeçalho.
+        complete_file (list) = Lista de listas de dicionários, que contém todas as informações do arquivo, ordenadas pelas colunas.
     
     """
     if os.path.isfile(path):
@@ -58,15 +58,12 @@ def csv_file_open (path:str):
 
         return None, None, None
     
-
+        
     
 
-
-
-
+if __name__ == "__main__":
+    path = r"E:\UTFPR\Algoritimos\atividade\Projeto 1\train.csv"
+    print(csv_file_open(path)[2])
     
-
-    
-
 
 
