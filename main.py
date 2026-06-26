@@ -5,8 +5,6 @@ import importacao
 import analise_titanic
 import visualizacao
 
-
-
 def main():
     path = os.getcwd()
     path = os.path.join(path, "train.csv")
@@ -38,6 +36,12 @@ def main():
                     print(" Valores inválidos, tente novamente.")
 
             match digito:
+                case 1:
+                    print()
+                    analise_titanic.contagem_geral(file_body)
+                    print()
+                    print(" -" *50)
+
                 case 4:
                     print()
                     analise_titanic.taxa_sobrevivencia(file_body)

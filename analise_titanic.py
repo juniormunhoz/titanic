@@ -1,3 +1,13 @@
+def contagem_geral (file_body: list):
+    """
+    Conta utilizando um loop for uma lisata de lista de passageiros usando o campo name.
+    """
+    contador = 0
+    for row in range (0, len(file_body)):
+        if file_body[row][3] != "":
+            contador += 1
+    print(f"A Contagem geral de passageiros contabilizou {contador} passageiros.")
+
 def distinct_values (cleaned_file_body: list):
 
     values_found = []
