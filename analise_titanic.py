@@ -1,60 +1,137 @@
-#Funções do projeto titanic
+def distinct_values (cleaned_file_body: list):
 
-#Função 4 - Taxa de Sobrevivência Geral e por Segmento
+    values_found = []
+    distinct_values_num = 0
+    aux = 0
 
-def taxa_sobrevivencia(file_body: list):
-    """
-    Este procedimento recebe uma lista de listas, file_body, e faz verificações de taxa de sobrevivência.
-    Taxa Geral: Porcentagem total de sobreviventes em relação ao total de passageiros.
-    Por Sexo: Compara a taxa de sobrevivência entre male (homens) e female (mulheres)
-    Por Classe: Calcula qual a porcentagem de sobreviventes em cada Pclass (1ª, 2ª e 3ª classe).
+    print('Colunas disponiveis para verificação:\n\n1 - PassengerId\n2 - Survived\n3 - Pclass\n4 - Name\n5 - Sex\n6 - Age\n7 - SibSp\n8 - Parch\n9 - Ticket\n10 - Fare\n11 - Cabin\n12 - Embarked\n')
 
-    Args:
-        file_body (list) = Lista de listas completa de todas as informações dos passageiros, sem o cabeçalho.
+    while True:
+        
+        try:
 
+            column = int(input('Informe o índice da coluna a ser analisada: '))
 
-    """
-    vivos_geral = 0
-    male = [0,0] #[total, sobreviventes]
-    female = [0,0] #[total, sobreviventes]
-    c_classes = [0,0,0]
-    vivos_classes = [0,0,0]
+            if (column > 0) and (column < 13):
 
+                break
 
-    for linha in file_body:
-        #Contagem geral
-        if linha[1] == "1":
-            vivos_geral += 1
+            else: 
 
-        #Contagem homens e mulheres
-        if linha[4] == "male":
-            male[0] += 1
-            if linha[1] == "1":
-                male[1] += 1
-        elif linha[4] == "female":
-            female[0] += 1
-            if linha[1] == "1":
-                female[1] += 1
-                
-        #Contagem por classe
-        if linha[2] == "1":
-            c_classes[0] += 1
-            if linha[1] == "1":
-                vivos_classes[0] += 1
-        elif linha[2] == "2":
-            c_classes[1] += 1
-            if linha[1] == "1":
-                vivos_classes[1] += 1
-        elif linha[2] == "3":
-            c_classes[2] += 1
-            if linha[1] == "1":
-                vivos_classes[2] += 1
+                print('\nNão existe coluna correspondente com o índice informado\n')
 
-    print(f" Na contagem geral, apenas {(vivos_geral/len(file_body)) * 100:.2f}% dos passageiros sobreviveram, o que corresponde a {vivos_geral} passageiros.\n" +
-          f" Dentre os {male[0]} homens, apenas {(male[1]/male[0]) * 100:.2f}% sobreviveram, o que corresponde a {male[1]} homens.\n" +
-          f" Dentre as {female[0]} mulheres, apenas {(female[1]/female[0]) *100:.2f}% sobreviveram, o que corresponde a {female[1]} mulheres.")
-    
-    for i in range(len(c_classes)):
-        print(f" Dentre os {c_classes[i]} da {i+1}° classe, apenas {(vivos_classes[i]/c_classes[i]) *100:.2f}% sobreviveram, o que corresponde a {vivos_classes[i]} passageiros.")
-    
-    
+        except ValueError:
+
+            print('\nEntrada inválida, digite apenas números inteiros.\n')
+
+    match column:
+
+        case 1:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][0] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][0])
+
+        case 2:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][1] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][1])
+
+        case 3:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][2] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][2])
+
+        case 4:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][3] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][3])
+
+        case 5:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][4] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][4])
+
+        case 6:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][5] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][5])
+
+        case 7:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][6] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][6])
+
+        case 8:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][7] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][7])
+
+        case 9:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][8] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][8])
+
+        case 10:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][9] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][9])
+
+        case 11:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][10] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][10])
+
+        case 12:
+
+            for row in range (0, len(cleaned_file_body)):
+
+                if (cleaned_file_body[row][11] not in values_found):
+
+                    distinct_values_num += 1
+                    values_found.append(cleaned_file_body[row][11])
+
+    print(f'\nExistem {distinct_values_num} valores distintos na coluna analisada.')

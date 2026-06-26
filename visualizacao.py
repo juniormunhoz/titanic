@@ -1,27 +1,14 @@
 def display_header (file_header: list):
-    """
-    Este procedimento recebe como argumento uma lista contendo apenas os dados do cabeçalho do arquivo train.csv e 
-    imprime o cabeçalho da planilha.
 
-    Args:
-        file_header = []
-    """
+    '''Recebe como arguento uma lista contendo apenas os dados do cabeçalho'''
 
-    print(f'\nOpção escolhida: Exibir Cabeçalho\n\n{file_header}')
+    print(file_header)
 
+def display_n_passengers (cleaned_file_body:list):
 
-def display_n_passengers (file_body:list):
-    """
-    Este procedimento recebe como argumento uma lista contendo os dados dos passageiro 
-    e imprime a quantidade de passageiros que o usuário inserir.
-    
-    Args:
-        file_body = []
-    
-    """
+    '''Recebe como argumento uma lista de lista ja tratada contendo apenas os dados dos passageiros '''
+
     passengers_num = 0
-
-    print('\nOpção escolhida: Exibir nomes dos primeiros passageiros\n')
 
     while (passengers_num <= 0):
 
@@ -29,28 +16,29 @@ def display_n_passengers (file_body:list):
 
         if (passengers_num > 0):
 
-            print('')
+            if (passengers_num <= len(cleaned_file_body)):
 
-            for passenger in range(0, passengers_num):
+                print()
 
-                print(f'{passenger + 1} - {file_body[passenger][3]}')
+                for passenger in range(0, passengers_num):
 
+                    print(f'{passenger + 1} - {cleaned_file_body[passenger][3]}')
+
+            else: 
+
+                print(f'\nA quantidade de passageiros a exibir é maior que número total de passageiros ({len(cleaned_file_body)} passageiros), dessa forma será exibida o quantidade total de passageiros\n')
+
+                for passenger in range(0, len(cleaned_file_body)):
+
+                    print(f'{passenger + 1} - {cleaned_file_body[passenger][3]}')
+                
         else: 
             
             print('\nO valor inserido deve ser maior que 0\n')
 
-
 def display_file (complete_file: list):
-    """
-    Este procedimento recebe como argumento uma lista com os dados completos do arquivo.csv 
-    e imprime o arquivo todo.
-    
-    Args:
-        complete_file = []
-    
-    """
 
-    print('\nOpção escolhida: Exibir todos os dados\n')
+    '''Recebe como argumento uma lista de lista de dicionarios completa '''
 
     for row in complete_file:
 
