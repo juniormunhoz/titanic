@@ -48,6 +48,12 @@ def main():
                     print()
                     print(" -" *50)
 
+                case 6:
+                    print()
+                    analise_titanic.tarifas_por_portos(file_body)
+                    print()
+                    print(" -" *50)
+
                 case 7:
                     print()
                     analise_titanic.distinct_values(cleaned_file_body)
