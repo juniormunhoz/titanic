@@ -223,8 +223,41 @@ def distinct_values (file_body: list):
 
     print(f'\nExistem {distinct_values_num} valores distintos na coluna analisada.')
 
-# 6 - Estatísticas de Tarifas (Fare) por Porto de Embarque
+#Atividade 5 Enzo
+def estatistica_familia (cleaned_file_body : list) :
+    #Esta função analisa a 7º e 8º coluna da matriz (respectivamente, SibSp e Parch), calcula e printa quantas pessoas viajaram sozinho ou em grupo, além da média
+    sozinho = 0
+    grupo = 0
+        
+    for linha in cleaned_file_body :
+        irmaos = float(linha[6])
+        parentes = float(linha[7])
+        if irmaos >= 1 :
+            if parentes >= 1 :
+                grupo += 1
+            else :
+                grupo += 1
+        else :
+            if parentes >= 1 :
+                grupo += 1
+            else :
+                sozinho += 1
 
+    soma = 0
+    contador = 0
+
+    for linha1 in cleaned_file_body :
+        parente = float(linha1[7])
+        soma += parente
+        contador += 1
+    media = soma / contador
+
+    print(f'{sozinho} das pessoas registradas viajaram sozinhas no Titanic')
+    print(f'{grupo} das pessoas registradas viajaram em grupo no Titanic')
+    print(f'\nA média aproximada de parentes que os passageiros levaram a bordo é igual a {media:.2f}')
+
+
+# 6 - Estatísticas de Tarifas (Fare) por Porto de Embarque
 def tarifas_por_portos (file_body: list):
     """
     Cruza informações de valores de tarifa por portos, calculando a tarifa
