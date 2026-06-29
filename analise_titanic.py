@@ -301,7 +301,7 @@ def taxa_sobrevivencia(file_body: list):
         print(f" Dentre os {c_classes[i]} da {i+1}° classe, apenas {(vivos_classes[i]/c_classes[i]) *100:.2f}% sobreviveram, o que corresponde a {vivos_classes[i]} passageiros.")
 
 # 5 - Análise de Composição Familiar
-def estatistica_familia (cleaned_file_body : list) :
+def estatistica_familia (file_body : list) :
     """
     Este procedimento recebe uma lista de listas já tratada e filtrada sem as linhas com células vazia.
     Analisa e faz operações utilizando as colunas SibSp e Parch para verificar se o passageiro viajava sozinho ou em grupo.
@@ -315,7 +315,7 @@ def estatistica_familia (cleaned_file_body : list) :
     sozinho = 0
     grupo = 0
         
-    for linha in cleaned_file_body :
+    for linha in file_body :
         irmaos = float(linha[6])
         parentes = float(linha[7])
         if irmaos >= 1 :
@@ -332,7 +332,7 @@ def estatistica_familia (cleaned_file_body : list) :
     soma = 0
     contador = 0
 
-    for linha1 in cleaned_file_body :
+    for linha1 in file_body :
         parente = float(linha1[7])
         soma += parente
         contador += 1
