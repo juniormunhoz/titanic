@@ -58,7 +58,7 @@ def main():
 
                 case 5:
                     print()
-                    analise_titanic.estatistica_familia(cleaned_file_body)
+                    analise_titanic.estatistica_familia(file_body)
                     print()
                     print(" -" *50)
 
