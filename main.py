@@ -74,6 +74,12 @@ def main():
                     print()
                     print(" -" *50)
 
+                case 8 :
+                    print()
+                    analise_titanic.perfil_classe(cleaned_file_body)
+                    print()
+                    print(" -" *50)
+
                 case 9:
                     print()
                     visualizacao.display_header(file_header)
