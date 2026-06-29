@@ -42,6 +42,12 @@ def main():
                     print()
                     print(" -" *50)
 
+                case 2 :
+                    print()
+                    analise_titanic.idades(cleaned_file_body)
+                    print()
+                    print(" -" *50)
+
                 case 4:
                     print()
                     analise_titanic.taxa_sobrevivencia(file_body)
